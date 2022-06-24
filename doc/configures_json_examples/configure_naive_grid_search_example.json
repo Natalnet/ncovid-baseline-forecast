@@ -1,0 +1,24 @@
+{
+    "model_type": "naive",
+    "model_configs": {
+        "forecast_average_lenght": [
+            5,
+            7,
+            10
+        ],
+        "naive_mode": [
+            "random",
+            "begin",
+            "end"
+        ]
+    },
+    "data_configures": {
+        "data_repo": "p971074907",
+        "data_country": "brl",
+        "data_subregion": "rn",
+        "data_feature": "date:newDeaths",
+        "data_window_size": "7",
+        "data_begin": "2020-01-01",
+        "data_end": "2020-04-15"
+    }
+}

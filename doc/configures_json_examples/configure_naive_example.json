@@ -1,0 +1,17 @@
+{
+    "ncovid": "Baseline COVID-19 configure file",
+    "author": "NatalNet NCovid",
+    "published_at": 2021,
+    "folder_configs": {
+        "docs_path": "../doc/",
+        "data_path": "../dbs/",
+        "model_path": "evaluated_models/",
+        "model_path_remote": "http://ncovid.natalnet.br/storage/models/",
+        "glossary_file": "glossary.json"
+    },
+    "model_type": "naive",
+    "model_configs": {
+        "forecast_average_lenght": 7,
+        "naive_mode": "begin"
+    }
+}

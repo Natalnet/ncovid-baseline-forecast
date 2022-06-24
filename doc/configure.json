@@ -1,0 +1,26 @@
+{
+    "ncovid": "Baseline COVID-19 configure file",
+    "author": "NatalNet NCovid",
+    "published_at": 2021,
+    "folder_configs": {
+        "docs_path": "../doc/",
+        "data_local_path": "../dbs/",
+        "model_path": "evaluated_models/",
+        "model_path_remote": "http://ncovid.natalnet.br/storage/models/",
+        "glossary_file": "glossary.json"
+    },
+    "model_type": "naive",
+    "model_configs": {
+        "forecast_average_lenght": 7,
+        "naive_mode": "begin"
+    },
+    "data_configures": {
+        "data_repo": "p971074907",
+        "data_country": "brl",
+        "data_subregion": "rn",
+        "data_feature": "date:newDeaths",
+        "data_window_size": "7",
+        "data_begin": "2020-01-01",
+        "data_end": "2020-04-15"
+    }
+}

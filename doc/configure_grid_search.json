@@ -1,0 +1,23 @@
+{
+    "model_type": "average",
+    "model_configs": {
+        "forecast_average_lenght": [
+            5,
+            7,
+            10
+        ],
+        "calculation_average_lenght": [
+            5,
+            7,
+            10
+        ],
+        "start_from": [
+            "end",
+            "begin"
+        ],
+        "average_type": [
+            "mean",
+            "median"
+        ]
+    }
+}
