@@ -58,7 +58,6 @@ class Evaluator:
 
     def _average_grid_search(self, combinations) -> dict():
         grid_search_results_dict = dict()
-        print("AAUUUUUu")
         for model_index, combination in enumerate(combinations):
             data_obj = DataPreparation()
             data_obj.get_data(

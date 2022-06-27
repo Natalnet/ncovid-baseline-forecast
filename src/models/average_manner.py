@@ -9,7 +9,7 @@ class ModelAverage:
         self,
         forecast_average_lenght: int,
         calculation_average_lenght: int = None,
-        start_from: str = "end",
+        start_from: str = "first",
         average_type: str = "mean",
     ):
         super().__init__()
@@ -19,7 +19,7 @@ class ModelAverage:
         self.start_from = start_from
         self.average_type = getattr(np, average_type)
 
-    def _start_average_calculation_from_begin(self, sequence):
+    def _start_average_calculation_from_first(self, sequence):
         return [
             [
                 self.average_type(
@@ -31,7 +31,7 @@ class ModelAverage:
             ]
         ]
 
-    def _start_average_calculation_from_end(self, sequence):
+    def _start_average_calculation_from_last(self, sequence):
         return [[self.average_type(sequence[-self.calculation_average_lenght :])]]
 
     def __one_step_average_calculation(self, sequence: np.array) -> np.array:

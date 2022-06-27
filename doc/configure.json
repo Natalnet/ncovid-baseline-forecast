@@ -12,7 +12,7 @@
     "model_type": "naive",
     "model_configs": {
         "forecast_average_lenght": 7,
-        "naive_mode": "begin"
+        "naive_mode": "first"
     },
     "data_configures": {
         "data_repo": "p971074907",

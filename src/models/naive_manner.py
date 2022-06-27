@@ -8,7 +8,7 @@ class ModelNaive:
     def __init__(
         self,
         forecast_average_lenght: int,
-        naive_mode: str = "begin",
+        naive_mode: str = "ordered",
     ):
         super().__init__()
 
@@ -30,13 +30,13 @@ class ModelNaive:
 
         return one_step__random_forwarded[-self.forecast_average_lenght :]
 
-    def _one_input_from_begin_forward(self, input_sample: np.array) -> np.array:
+    def _one_input_from_ordered_forward(self, input_sample: np.array) -> np.array:
         one_step_begin_forwarded = np.resize(
             input_sample, (self.forecast_average_lenght, 1)
         )
         return one_step_begin_forwarded
 
-    def _one_input_from_end_forward(self, input_sample: np.array) -> np.array:
+    def _one_input_from_inverted_forward(self, input_sample: np.array) -> np.array:
         one_step_end_forwarded = np.flip(input_sample)
         one_step_end_forwarded = np.resize(
             one_step_end_forwarded, (self.forecast_average_lenght, 1)

@@ -12,8 +12,8 @@
             10
         ],
         "start_from": [
-            "end",
-            "begin"
+            "first",
+            "last"
         ],
         "average_type": [
             "mean",

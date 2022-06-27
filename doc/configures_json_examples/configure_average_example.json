@@ -13,7 +13,7 @@
     "model_configs": {
         "forecast_average_lenght": 7,
         "calculation_average_lenght": 7,
-        "start_from": "end",
+        "start_from": "last",
         "average_type": "mean"
     }
 }

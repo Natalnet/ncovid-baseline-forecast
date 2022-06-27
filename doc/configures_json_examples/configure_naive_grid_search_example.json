@@ -8,8 +8,8 @@
         ],
         "naive_mode": [
             "random",
-            "begin",
-            "end"
+            "ordered",
+            "inverted"
         ]
     },
     "data_configures": {

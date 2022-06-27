@@ -12,6 +12,6 @@
     "model_type": "naive",
     "model_configs": {
         "forecast_average_lenght": 7,
-        "naive_mode": "begin"
+        "naive_mode": "ordered"
     }
 }
