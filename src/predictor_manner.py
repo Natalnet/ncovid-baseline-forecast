@@ -37,16 +37,16 @@ class Predictor:
         )()
 
     def gen_data_to_predict(self, begin: str, end: str):
-        configures_manner.add_variable_to_globals("data_begin", begin)
-        configures_manner.add_variable_to_globals("data_end", end)
+        configures_manner.add_variable_to_globals("begin", begin)
+        configures_manner.add_variable_to_globals("end", end)
         data_obj = DataPreparation()
-        data_obj.get_data_to_web_request(
-            configures_manner.data_repo,
-            configures_manner.data_path,
-            configures_manner.data_feature,
-            configures_manner.data_window_size,
-            configures_manner.data_begin,
-            configures_manner.data_end,
+        data_obj.get_data(
+            configures_manner.repo,
+            configures_manner.path,
+            configures_manner.inputFeatures,
+            configures_manner.inputWindowSize,
+            configures_manner.begin,
+            configures_manner.end,
         )
         return data_obj.windowing_data()
 

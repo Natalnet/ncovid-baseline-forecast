@@ -97,9 +97,6 @@ with open("../doc/configure.json") as json_file:
             [data_local_path, model_path], "model_path"
         )
 
-        combine_configures_names_and_add_to_globals(
-            [data_country, ":", data_subregion], "data_path"
-        )
     except Exception as e:
         (
             "configs_manner.py",

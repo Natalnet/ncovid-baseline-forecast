@@ -1,15 +1,16 @@
 {
     "model_type": "average",
-    "model_configs": {
+    "modelConfigs": {
         "forecast_average_lenght": [
-            5,
             7,
-            10
+            14,
+            21,
+            28
         ],
         "calculation_average_lenght": [
-            5,
             7,
-            10
+            14,
+            21
         ],
         "start_from": [
             "first",
@@ -19,5 +20,13 @@
             "mean",
             "median"
         ]
+    },
+    "data_infos": {
+        "repo": "p971074907",
+        "path": "brl:rn",
+        "inputFeatures": "date:newDeaths",
+        "inputWindowSize": "7",
+        "begin": "2020-01-01",
+        "end": "2020-08-15"
     }
 }

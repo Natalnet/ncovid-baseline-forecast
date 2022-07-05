@@ -65,7 +65,9 @@ class DataPreparation:
             f"begin/{new_begin}/"
             f"end/{new_end}/as-csv"
         )
+        file_name = "/home/emerson/Documents/Doutorado/Semestre 4/N-Covid Beckend/ncovid-ml-modules/dbs/df_araraquara.csv"
         df = pd.read_csv(file_name, parse_dates=["date"], index_col="date")
+        data = np.array(df["deaths"])
         # TODO: solve this for multivariate case
         for x in feature.split(":")[1:]:
             data = df[x].values

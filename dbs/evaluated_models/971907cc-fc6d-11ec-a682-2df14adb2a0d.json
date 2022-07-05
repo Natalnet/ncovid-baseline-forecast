@@ -1,0 +1,21 @@
+{
+    "instance_id": "971907cc-fc6d-11ec-a682-2df14adb2a0d",
+    "score": 5.4287538640496225,
+    "model_category": "baseline",
+    "model_type": "average",
+    "data_of_training": "2022-07-05 11:20:15",
+    "data_infos": {
+        "path": "brl:rn",
+        "repo": "p971074907",
+        "data_begin_date": "2020-01-01",
+        "data_end_date": "2020-08-15",
+        "inputFeatures": "date:newDeaths",
+        "inputWindowSize": "7"
+    },
+    "params": {
+        "forecast_average_lenght": 7,
+        "calculation_average_lenght": 7,
+        "start_from": "first",
+        "average_type": "mean"
+    }
+}

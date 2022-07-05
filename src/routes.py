@@ -9,45 +9,40 @@ import predictor_manner
 
 
 @app.route(
-    "/api/v1/baseline/model_type/<modelType>/train/repo/<repo>/path/<path>/feature/<feature>/begin/<begin>/end/<end>/",
+    "/api/v1/modelType/<modelType>/train/repo/<repo>/path/<path>/",
     methods=["POST"],
 )
-# modelTypes: exp_smoothing, arima, sarima
-def train_baseline(modelType, repo, path, feature, begin, end):
-    # get the metadata
-    metadata_to_train = json.loads(request.form.get("metadata"))
-    configures_manner.overwrite(metadata_to_train)
-    data_configs = {
-        "repo": repo,
-        "path": path,
-        "feature": feature,
-        "begin": begin,
-        "end": end,
-    }
-    evaluator = evaluator_manner.Evaluator(data_configs)
-    gd = evaluator.grid_search_from_request_configures(save_file=False)
+def train_baseline(modelType, repo, path):
 
-    best_model = evaluator.get_best_model(gd)
+    metadata_to_train = json.loads(request.form.get("metadata"))
+
+    configures_manner.add_variable_to_globals("model_type", modelType)
+    configures_manner.add_variable_to_globals("repo", repo)
+    configures_manner.add_variable_to_globals("path", path)
+    configures_manner.overwrite(metadata_to_train)
+
+    evaluator = evaluator_manner.Evaluator()
+    grid_search_response = evaluator.grid_search_from_request_configures(
+        save_file=False
+    )
+
+    best_model = evaluator.get_best_model(grid_search_response)
 
     evaluator.save_best_model()
+    reponse_json = jsonify(best_model)
 
-    return jsonify(best_model)
+    return reponse_json
 
 
 @app.route(
-    "/api/v1/baseline/predict/model-instance/<modelInstance>/begin/<begin>/end/<end>/",
-    methods=["POST"],
+    "/api/v1/modelCategory/<modelCategory>/predict/modelInstance/<modelInstance>/begin/<begin>/end/<end>/",
+    methods=["GET"],
 )
-def predict_baseline(modelInstance, begin, end):
+def predict_baseline(modelCategory, modelInstance, begin, end):
 
-    metadata_instance = json.loads(request.form.get("metadata"))
+    predictor = predictor_manner.Predictor(modelCategory)
 
-    model_id = metadata_instance["model_id"]
-    model_type = modelInstance
-
-    predictor = predictor_manner.Predictor(model_type)
-
-    predictor.load_instace_model_from_id(model_id)
+    predictor.load_instace_model_from_id(modelInstance)
     data_to_predict = predictor.gen_data_to_predict(begin, end)
 
     yhat = predictor.predict(data_to_predict)
