@@ -1,32 +1,32 @@
 {
-    "model_type": "average",
-    "model_configs": {
+    "modelType": "average",
+    "modelConfigs": {
         "forecast_average_lenght": [
-            5,
             7,
-            10
+            14,
+            21,
+            28
         ],
         "calculation_average_lenght": [
-            5,
             7,
-            10
+            14,
+            21
         ],
         "start_from": [
-            "last",
-            "first"
+            "first",
+            "last"
         ],
         "average_type": [
             "mean",
             "median"
         ]
     },
-    "data_configures": {
-        "data_repo": "p971074907",
-        "data_country": "brl",
-        "data_subregion": "rn",
-        "data_feature": "date:newDeaths",
-        "data_window_size": "7",
-        "data_begin": "2020-01-01",
-        "data_end": "2020-04-15"
+    "data_infos": {
+        "repo": "p971074907",
+        "path": "brl:rn",
+        "inputFeature": "date:newDeaths",
+        "inputWindowSize": "7",
+        "begin": "2020-01-01",
+        "end": "2020-04-15"
     }
 }
