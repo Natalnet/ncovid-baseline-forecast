@@ -65,7 +65,7 @@ class DataPreparation:
             f"begin/{new_begin}/"
             f"end/{new_end}/as-csv"
         )
-        
+
         df = pd.read_csv(file_name, parse_dates=["date"], index_col="date")
         # TODO: solve this for multivariate case
         for x in feature.split(":")[1:]:

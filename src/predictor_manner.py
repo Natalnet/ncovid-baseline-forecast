@@ -8,12 +8,10 @@ import datetime
 
 
 class Predictor:
-    def __init__(self, model_predictor_baseline_type: str):
+    def __init__(self):
         super().__init__()
-        self.model_predictor_baseline_type = model_predictor_baseline_type
 
     def generate_average_instance(self):
-        configures_manner.add_all_configures_to_globals(self.model_instance_json)
         model_instance = average_manner.ModelAverage(
             configures_manner.forecast_average_lenght,
             configures_manner.calculation_average_lenght,
@@ -23,7 +21,6 @@ class Predictor:
         return model_instance
 
     def generate_naive_instance(self):
-        configures_manner.add_all_configures_to_globals(self.model_instance_json)
         model_instance = naive_manner.ModelNaive(
             configures_manner.forecast_average_lenght, configures_manner.naive_mode
         )
@@ -32,8 +29,9 @@ class Predictor:
     def load_instace_model_from_id(self, model_id: str):
         with open(configures_manner.model_path + model_id + ".json") as json_file:
             self.model_instance_json = json.load(json_file)
+        configures_manner.add_all_configures_to_globals(self.model_instance_json)
         self.model_instance = getattr(
-            self, f"generate_{self.model_predictor_baseline_type}_instance"
+            self, f"generate_{configures_manner.model_type}_instance"
         )()
 
     def gen_data_to_predict(self, begin: str, end: str):

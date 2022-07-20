@@ -40,7 +40,7 @@ def train_baseline(modelType, repo, path):
 )
 def predict_baseline(modelCategory, modelInstance, begin, end):
 
-    predictor = predictor_manner.Predictor(modelCategory)
+    predictor = predictor_manner.Predictor()
 
     predictor.load_instace_model_from_id(modelInstance)
     data_to_predict = predictor.gen_data_to_predict(begin, end)

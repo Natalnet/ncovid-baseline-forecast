@@ -9,8 +9,7 @@ import predictor_manner
 # GET request infos
 
 ## URL contents
-modelInstance = "8f3c2d12-f7fa-11ec-92cd-db98f636c7a7"
-modelCategory = "naive"
+modelInstance = "4b64531a-077e-11ed-90b4-d306882a1848"
 
 model_insatnce_id = modelInstance
 
@@ -18,7 +17,7 @@ begin = "2020-06-01"
 end = "2020-07-09"
 
 # Predictor Flow
-predictor = predictor_manner.Predictor(modelCategory)
+predictor = predictor_manner.Predictor()
 
 ## Load the instance
 predictor.load_instace_model_from_id(model_insatnce_id)
